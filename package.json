@@ -17,5 +17,8 @@
     "mongo-sanitize": "^1.0.0",
     "mongodb": "^3.1.0-beta4",
     "react-password-strength": "^2.3.1"
+  },
+  "engines": {
+    "node": "8.9.4"
   }
 }
