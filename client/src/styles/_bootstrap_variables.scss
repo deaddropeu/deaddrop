@@ -1,0 +1,13 @@
+//changing default bootstrap values
+
+$bootstrap-sass-asset-helper: true;
+$grid-gutter-width:         30px !default;
+
+// Small screen / tablet
+$container-tablet:             (420px + $grid-gutter-width) !default;
+
+// Medium screen / desktop
+$container-desktop:            (640px + $grid-gutter-width) !default;
+
+// Large screen / wide desktop
+$container-large-desktop:      (840px + $grid-gutter-width) !default;

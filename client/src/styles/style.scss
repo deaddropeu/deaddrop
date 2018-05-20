@@ -1,0 +1,118 @@
+@import "_bootstrap_variables";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap-sprockets";
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import "_vars";
+
+
+.form-control {
+  border-radius: 3px;
+  box-shadow: none;
+}
+
+input::placeholder, textarea::placeholder {
+  color: $color-form-placeholder !important;
+}
+
+.form-control:focus {
+  box-shadow: none;
+  border-color: $color-form-border;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  padding-top: 65px;
+
+  .navbar {
+    height: 65px;
+    background-color: $color-navbar-bg;
+    box-shadow: 0 1px 1px 0 rgba(116, 129, 141, 0.1);
+
+    .navbar-header {
+      width: 100%;
+      text-align: right;
+
+      a.navbar-brand {
+        display: inline-block;
+        font-size: 25px;
+        line-height: 65px;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      form {
+        display: inline-block;
+        line-height: 65px;
+
+        input, button {
+          display: inline-block;
+        }
+      }
+
+      a.add-drop-link {
+        text-decoration: none;
+        font-size: 30px;
+        color: $color-create-link;
+        padding-right: 15px;
+        position: relative;
+        top: 5px;
+
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+
+  .jumbotron {
+    text-align: center;
+  }
+
+  .create, .drop {
+    padding-top: 15px;
+  }
+
+  .form-control {
+    margin-bottom: 15px;
+  }
+
+  textarea {
+    min-height: 200px;
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .message-text {
+    text-align: justify;
+  }
+
+  .password-strength {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+    border-radius: 3px;
+    border-color: $color-form-border;
+
+    input {
+      font-size: 14px;
+      color: #555555;
+      padding: 7px 12px 5px 12px;
+    }
+
+    .ReactPasswordStrength-strength-desc {
+      padding: 7px 12px;
+      font-size: 16px;
+    }
+  }
+
+  .loading {
+    padding-top: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  footer {
+    padding-top: 30px;
+    text-align: center;
+  }
+}
