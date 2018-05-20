@@ -4,8 +4,7 @@ const bodyParser = require('body-parser');
 const sanitize = require('mongo-sanitize');
 const crypto = require('crypto');
 
-const db_config = require('./db-config');
-const url = db_config(app.get('env'));
+const url = process.env.DB_URL;
 const MongoClient = require('mongodb').MongoClient;
 
 app.set("port", process.env.PORT || 3001);
