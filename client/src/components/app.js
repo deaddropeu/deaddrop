@@ -71,7 +71,7 @@ class App extends Component {
                             <Redirect to="/" />
                         </Switch>
                         <footer>
-                           <a href="https://github.com/"><img src={githublogo} alt="GitHub logo" title="Go to GitHub repo" /></a>
+                           <a href="https://github.com/hynekhavel/deaddrop/"><img src={githublogo} alt="GitHub logo" title="Go to GitHub repo" /></a>
                         </footer>
                     </div>
                 </Router>
