@@ -18,15 +18,20 @@ if (app.get('env') === "production") {
     app.use(express.static("client/build"));
 }
 
-app.get("*", function(req, res) {
+const router = express.Router();
+app.use('/', router);
+
+router.use(function(req, res, next) {
     if (app.get('env') !== 'development') {
         if(req.headers['x-forwarded-proto'] != 'https') {
             return res.redirect('https://' + req.get('host') + req.url);
         }
     }
+
+    next();
 });
 
-app.post("/api/getmessage", (req, res) => {
+router.post("/api/getmessage", (req, res) => {
     let public_id = sanitize(req.body.id);
 
     MongoClient.connect(url, function(err, db_server) {
@@ -54,7 +59,7 @@ app.post("/api/getmessage", (req, res) => {
     });
 });
 
-app.post("/api/setmessage", (req, res) => {
+router.post("/api/setmessage", (req, res) => {
     let text = sanitize(req.body.text);
     let question = sanitize(req.body.question);
 
