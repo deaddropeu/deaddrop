@@ -45,6 +45,8 @@ body {
     .navbar-header {
       width: 100%;
       text-align: right;
+      height: 65px;
+      overflow: hidden;
 
       a.navbar-brand {
         display: inline-block;
