@@ -98,6 +98,11 @@ class Drop extends Component {
             );
         } else {
             if(this.state.show_form) {
+                let hint = '';
+                if(this.state.question !== '') {
+                    hint = <p>Password hint: {this.state.question}</p>;
+                }
+
                 output = (
                     <div>
                         <form>
@@ -108,7 +113,7 @@ class Drop extends Component {
                                 type="password"
                                 placeholder="Password"
                             />
-                            <p>Password hint: {this.state.question}</p>
+                            {hint}
                             <Button type="submit" onClick={e => this.decodeMessage(e)}>Decode message</Button>
                         </form>
                     </div>

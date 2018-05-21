@@ -141,12 +141,14 @@ class Create extends Component {
                 </div>
             );
         } else {
+            let link = 'https://'+ window.location.hostname +'/d/'+this.state.new_id;
             output = (
                 <div>
                     {alert}
-                    <h2>Link: {window.location.hostname}/d/{this.state.new_id}</h2>
+                    <h2>ID of your drop: {this.state.new_id}</h2>
+                    <h3>Link: <a href={link}>{link}</a></h3>
                     <p>{this.state.question !== '' ? 'Hint for password: '+ this.state.question : ''}</p>
-                    <p>Pass this informations to recipient by safe route.</p>
+                    <p>Pass these informations to the recipient by a safe route.</p>
                     <Button onClick={e => this.newMessage(e)}>New message</Button>
                 </div>
             );
