@@ -18,6 +18,16 @@ if (app.get('env') === "production") {
     app.use(express.static("client/build"));
 }
 
+app.use(function(req, res, next) {
+    if (app.get('env') !== 'development') {
+        if(req.headers['x-forwarded-proto'] != 'https') {
+            return res.redirect('https://' + req.get('host') + req.url);
+        }
+    }
+
+    next();
+});
+
 app.post("/api/getmessage", (req, res) => {
     let public_id = sanitize(req.body.id);
 
