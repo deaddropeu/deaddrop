@@ -171,7 +171,7 @@ class Create extends Component {
                     <p>Link: <a href={link}>{link}</a></p>
                     <p>{this.state.question !== '' ? 'Hint for password: '+ this.state.question : ''}</p>
                     <em>Pass these informations to the recipient by a safe route.</em>
-                    <Button onClick={e => this.newMessage(e)}>New message</Button>
+                    <br /><Button onClick={e => this.newMessage(e)}>New message</Button>
                 </div>
             );
         }
