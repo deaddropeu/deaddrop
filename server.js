@@ -22,11 +22,11 @@ const router = express.Router();
 app.use('/', router);
 
 router.use(function(req, res, next) {
-    if (app.get('env') !== 'development') {
+    //if (app.get('env') !== 'development') {
         if(req.headers['x-forwarded-proto'] != 'https') {
             return res.redirect('https://' + req.get('host') + req.url);
         }
-    }
+    //}
 
     next();
 });
