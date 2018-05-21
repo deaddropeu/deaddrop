@@ -144,7 +144,7 @@ class Create extends Component {
             output = (
                 <div>
                     {alert}
-                    <h2>ID of your message: {this.state.new_id}</h2>
+                    <h2>Link: {window.location.hostname}/d/{this.state.new_id}</h2>
                     <p>{this.state.question !== '' ? 'Hint for password: '+ this.state.question : ''}</p>
                     <p>Pass this informations to recipient by safe route.</p>
                     <Button onClick={e => this.newMessage(e)}>New message</Button>
