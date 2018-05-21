@@ -14,24 +14,21 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-if (app.get('env') === "production") {
-    app.use(express.static("client/build"));
-}
-
-const router = express.Router();
-app.use('/', router);
-
-router.use(function(req, res, next) {
-    //if (app.get('env') !== 'development') {
+app.use(function(req, res, next) {
+    if (app.get('env') !== 'development') {
         if(req.headers['x-forwarded-proto'] != 'https') {
             return res.redirect('https://' + req.get('host') + req.url);
         }
-    //}
+    }
 
     next();
 });
 
-router.post("/api/getmessage", (req, res) => {
+if (app.get('env') === "production") {
+    app.use(express.static("client/build"));
+}
+
+app.post("/api/getmessage", (req, res) => {
     let public_id = sanitize(req.body.id);
 
     MongoClient.connect(url, function(err, db_server) {
@@ -59,7 +56,7 @@ router.post("/api/getmessage", (req, res) => {
     });
 });
 
-router.post("/api/setmessage", (req, res) => {
+app.post("/api/setmessage", (req, res) => {
     let text = sanitize(req.body.text);
     let question = sanitize(req.body.question);
 
