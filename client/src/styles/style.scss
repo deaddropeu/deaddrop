@@ -1,13 +1,27 @@
 @import "_bootstrap_variables";
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+$icon-font-path: '../../node_modules/bootstrap-sass/assets/fonts/bootstrap/';
+@function font-path($path) {
+  @return $path;
+}
+
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap-sprockets";
 @import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap";
-@import url("https://fonts.googleapis.com/css?family=Roboto");
 @import "_vars";
+@import "_responsive";
 
+*:focus {
+  outline: none !important;
+}
 
 .form-control {
   border-radius: 3px;
   box-shadow: none;
+}
+
+.danger {
+  color: $color-danger;
 }
 
 input::placeholder, textarea::placeholder {
@@ -41,21 +55,38 @@ body {
       }
 
       form {
+        width: 200px;
         display: inline-block;
         line-height: 65px;
 
         input, button {
           display: inline-block;
         }
+
+        input {
+          padding-right: 33px;
+        }
+
+        .search-button {
+          position: relative;
+          top: -64px;
+          border: 0;
+          background-color: transparent;
+          color: $color-create-link;
+
+          span {
+            transform:rotate(0.1deg);
+          }
+        }
       }
 
       a.add-drop-link {
         text-decoration: none;
-        font-size: 30px;
+        font-size: 15px;
         color: $color-create-link;
-        padding-right: 15px;
         position: relative;
-        top: 5px;
+        top: -63px;
+        right: 15px;
 
 
         &:hover {
@@ -99,11 +130,13 @@ body {
       font-size: 14px;
       color: #555555;
       padding: 7px 12px 5px 12px;
+      width: calc(70% - 28px);
     }
 
     .ReactPasswordStrength-strength-desc {
       padding: 7px 12px;
       font-size: 16px;
+      width: 30%;
     }
   }
 
@@ -111,6 +144,11 @@ body {
     padding-top: 20px;
     font-size: 20px;
     text-align: center;
+  }
+
+  .character-counter {
+    position: relative;
+    top: -12px;
   }
 
   footer {

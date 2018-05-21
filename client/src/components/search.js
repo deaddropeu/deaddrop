@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {FormControl} from 'react-bootstrap';
+import {FormControl, Glyphicon, Button} from 'react-bootstrap';
 
 class Search extends Component {
     render() {
@@ -12,6 +12,7 @@ class Search extends Component {
                     placeholder="Search drops by ID"
                     autoComplete="off"
                 />
+                <Button onClick={e => this.props.searchDrop(e)} className="search-button"><Glyphicon glyph="search" /></Button>
             </form>
         );
     }

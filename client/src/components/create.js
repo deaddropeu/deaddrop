@@ -4,6 +4,7 @@ import CryptoJS from 'crypto-js';
 import {FormControl, Grid, Button, Alert} from 'react-bootstrap';
 import ReactPasswordStrength from 'react-password-strength';
 
+const maxMessageLength = 10;
 class Create extends Component {
     constructor(props) {
         super(props);
@@ -13,17 +14,31 @@ class Create extends Component {
             created: false,
             new_id: '',
             message: '',
+            charsLeft: maxMessageLength,
             question: '',
             password: '',
             passwordValid: false,
             password2: '',
             response: '',
-            responseStyle: 'success'
+            responseStyle: 'success',
+            canSend: true
         };
     }
 
     updateInputValue(e) {
         this.setState({ [e.target.id]: e.target.value });
+    }
+
+    updateMessageValue(e) {
+        let chars = maxMessageLength - e.target.value.length;
+        let setStatateObj = {
+            message: e.target.value,
+            charsLeft: chars
+        };
+
+        setStatateObj['canSend'] = chars >= 0;
+
+        this.setState(setStatateObj);
     }
 
     changeCallback(state) {
@@ -36,6 +51,10 @@ class Create extends Component {
 
     sendMessage(e) {
         e.preventDefault();
+
+        if(!this.state.canSend) {
+            return this.setState({ response: 'Message is too long.', responseStyle: 'danger' });
+        }
 
         if(this.state.password === '' || this.state.password2 === '') {
             return this.setState({ response: 'Please fill up passwords.', responseStyle: 'danger' });
@@ -72,18 +91,20 @@ class Create extends Component {
     newMessage(e) {
         e.preventDefault();
 
-        this.setState({
+        this.state = {
             loading: false,
             created: false,
             new_id: '',
             message: '',
+            charsLeft: 0,
             question: '',
             password: '',
             passwordValid: false,
             password2: '',
             response: '',
-            responseStyle: 'success'
-        });
+            responseStyle: 'success',
+            canSend: true
+        };
     }
 
     render() {
@@ -110,11 +131,12 @@ class Create extends Component {
                         {alert}
                         <FormControl
                             id="message"
-                            onChange={e => this.updateInputValue(e)}
+                            onInput={e => this.updateMessageValue(e)}
                             componentClass="textarea"
                             placeholder="Message to encrypt"
                             value={this.state.message}
                         />
+                        <span className={this.state.charsLeft < 0 ? 'character-counter danger' : 'character-counter'}>{this.state.charsLeft}</span>
                         <FormControl
                             id="question"
                             onChange={e => this.updateInputValue(e)}
@@ -136,7 +158,7 @@ class Create extends Component {
                             type="password"
                             placeholder="Confirm password"
                         />
-                        <Button type="submit" onClick={e => this.sendMessage(e)}>Encrypt and save</Button>
+                        <Button type="submit" onClick={e => this.sendMessage(e)} disabled={!this.state.canSend}>Encrypt and save</Button>
                     </form>
                 </div>
             );
@@ -146,9 +168,9 @@ class Create extends Component {
                 <div>
                     {alert}
                     <h2>ID of your drop: {this.state.new_id}</h2>
-                    <h3>Link: <a href={link}>{link}</a></h3>
+                    <p>Link: <a href={link}>{link}</a></p>
                     <p>{this.state.question !== '' ? 'Hint for password: '+ this.state.question : ''}</p>
-                    <p>Pass these informations to the recipient by a safe route.</p>
+                    <em>Pass these informations to the recipient by a safe route.</em>
                     <Button onClick={e => this.newMessage(e)}>New message</Button>
                 </div>
             );

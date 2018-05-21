@@ -60,7 +60,7 @@ class App extends Component {
                                 <Navbar.Brand>
                                     <Link className="navbar-brand" to="/">DeadDrop</Link>
                                 </Navbar.Brand>
-                                <Link to="/create" className="add-drop-link" title="Create new drop">+</Link>
+                                <Link to="/create" className="add-drop-link" data-toggle="tooltip" data-placement="bottom" title="Create new drop"><span className="glyphicon glyphicon-plus"></span></Link>
                                 <Search searchDrop={this.searchDrop.bind(this)} updateInputValue={this.updateInputValue.bind(this)} />
                             </Navbar.Header>
                         </Navbar>
@@ -71,7 +71,7 @@ class App extends Component {
                             <Redirect to="/" />
                         </Switch>
                         <footer>
-                           <a href="https://github.com/hynekhavel/deaddrop/"><img src={githublogo} alt="GitHub logo" title="Go to GitHub repo" /></a>
+                           <a href="https://github.com/hynekhavel/deaddrop/"><img src={githublogo} alt="GitHub logo" data-toggle="tooltip" data-placement="top" title="Go to GitHub repo" /></a>
                         </footer>
                     </div>
                 </Router>
