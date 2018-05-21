@@ -4,7 +4,7 @@ import CryptoJS from 'crypto-js';
 import {FormControl, Grid, Button, Alert} from 'react-bootstrap';
 import ReactPasswordStrength from 'react-password-strength';
 
-const maxMessageLength = 10;
+const maxMessageLength = 4000;
 class Create extends Component {
     constructor(props) {
         super(props);
