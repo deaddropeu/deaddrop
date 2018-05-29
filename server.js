@@ -26,6 +26,17 @@ app.use(bodyParser.urlencoded({
     next();
 });*/
 
+app.use(function(req, res, next) {
+    let host = req.get('Host');
+    if (app.get('env') !== 'development') {
+        if (host === 'afterwar.herokuapp.com') {
+            return res.redirect(301, 'http://' + game_labels.domain + req.url);
+        }
+    }
+
+    next();
+});
+
 if (app.get('env') === "production") {
     app.use(express.static("client/build"));
 }

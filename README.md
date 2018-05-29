@@ -3,4 +3,4 @@ DeadDrop is a simple application for sending encrypted messages. Every message i
 Build with: node.js, reactjs, mongodb, Soceket.IO and bootstrap.
 
 ---
-Live app: [deaddropapp.herokuapp.com](https://deaddropapp.herokuapp.com/)
+Live app: [deaddrop.eu](https://deaddrop.eu/)
