@@ -19,8 +19,10 @@ const Home = () => {
                 </Grid>
             </Jumbotron>
             <Grid>
-                <h3>Recent drops:</h3>
-                <DropListContainer />
+                <div className="droplist-container">
+                    <h3>Recent drops:</h3>
+                    <DropListContainer />
+                </div>
             </Grid>
         </div>
     );
