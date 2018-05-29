@@ -29,8 +29,8 @@ app.use(bodyParser.urlencoded({
 app.use(function(req, res, next) {
     let host = req.get('Host');
     if (app.get('env') !== 'development') {
-        if (host === 'afterwar.herokuapp.com') {
-            return res.redirect(301, 'http://' + game_labels.domain + req.url);
+        if (host === 'deaddropapp.herokuapp.com') {
+            return res.redirect(301, 'http://deaddrop.eu'+ req.url);
         }
     }
 
