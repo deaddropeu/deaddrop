@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Redirect, Switch} from "react-router-dom";
 import {Navbar} from 'react-bootstrap';
-import githublogo from './github-logo.png';
+import githublogo from '../imgs/github-logo.png';
 
-import Home from "./home";
-import Create from "./create";
-import Drop from "./drop";
-import Search from './search';
+import Home from "./Home";
+import CreateContainer from "./CreateConatiner";
+import DropContainer from "./DropContainer";
+import Search from './Search';
 
 class App extends Component {
     constructor(props) {
@@ -66,8 +66,8 @@ class App extends Component {
                         </Navbar>
                         <Switch>
                             <Route exact path='/' component={Home} />
-                            <Route path='/create' component={Create} />
-                            <Route path='/d/:id' component={Drop} />
+                            <Route path='/create' component={CreateContainer} />
+                            <Route path='/d/:id' component={DropContainer} />
                             <Redirect to="/" />
                         </Switch>
                         <footer>
