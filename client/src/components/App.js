@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link, Redirect, Switch} from "react-router-dom";
 import {Navbar} from 'react-bootstrap';
-import githublogo from '../imgs/github-logo.png';
+import githublogo from '../imgs/github-logo.svg';
 
 import Home from "./Home";
 import CreateContainer from "./CreateConatiner";
