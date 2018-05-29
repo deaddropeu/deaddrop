@@ -74,12 +74,17 @@ body {
       overflow: hidden;
 
       a.navbar-brand {
+        color: $color-link;
         display: inline-block;
         font-size: 25px;
         line-height: 65px;
         padding-top: 0;
         padding-bottom: 0;
         text-decoration: none;
+      }
+
+      a.navbar-brand:hover {
+        color: $color-text;
       }
 
       form {
@@ -111,7 +116,7 @@ body {
       a.add-drop-link {
         text-decoration: none;
         font-size: 15px;
-        color: $color-create-link;
+        color: $color-link;
         position: relative;
         top: -63px;
         right: 15px;
@@ -178,6 +183,10 @@ body {
 
   .jumbotron {
     text-align: center;
+
+    h1 {
+      color: $color-link;
+    }
   }
 
   .create, .drop {
