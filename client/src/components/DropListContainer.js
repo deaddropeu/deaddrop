@@ -24,9 +24,6 @@ class DropListContainer extends Component {
             url = document.location.protocol +'//'+ document.location.hostname;
         }
 
-        console.log(document.location.protocol +'//'+ document.location.hostname +':3001');
-        console.log(document.location.protocol +'//'+ document.location.hostname +'/');
-
         this.socket = io(url);
 
         this.socket.on('new_message', data => {
