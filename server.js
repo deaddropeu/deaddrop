@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
     if (app.get('env') !== 'development') {
         if(req.headers['x-forwarded-proto'] != 'https') {
             return res.redirect('https://' + req.get('host') + req.url);
@@ -24,7 +24,7 @@ app.use(function(req, res, next) {
     }
 
     next();
-});
+});*/
 
 if (app.get('env') === "production") {
     app.use(express.static("client/build"));
